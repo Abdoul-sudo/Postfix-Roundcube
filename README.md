@@ -376,7 +376,7 @@ On copie ceci dans le fichier vide:
   `chown www-data:www-data logs/`
   > PS: www-data c'est apache
 
-  * On actualise et on voit que tout est __OK__
+  * On actualise et on voit que tout est __OK__   
   ![url_rInstaller5](/assets/url_rInstaller5.png)   
 
   * En bas, on teste l'envoi d'email et l'imap:   
