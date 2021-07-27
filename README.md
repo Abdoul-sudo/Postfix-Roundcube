@@ -17,7 +17,8 @@
 ---------------------------
 
 ## <a name="installP"> Installation de postfix</a>
-`apt-get install postfix postfix-mysql`   
+`apt-get install postfix postfix-mysql`    
+On choisit __pas de configuration__ lors de l'installation  
 
 ## <a name="bddP"> Base de donnée postfix</a>
 On va la créer sur phpmyadmin en tant que root   
@@ -122,7 +123,7 @@ where_field = email
 ![adduser](/assets/adduser.png)   
 
 * `nano /etc/postfix/main.cf`  
-Copier dans le fichier (videz le s'il n'est pas vide):
+On copie dans le fichier (videz le s'il n'est pas vide):
 ```
 # Bannière afficher lorsqu'on se connecte en SMTP sur le port 25
 smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
@@ -180,7 +181,7 @@ virtual_gid_maps = static:5000
 # Créer un dossier par comte email
 virtual_create_maildirsize = yes
 
-# A activer si vous souhaitez ajouter des quotas
+# A activer si on souhaite ajouter des quotas
 virtual_mailbox_extended = yes
 
 # Impose les limites au niveau des mails, dans notre cas aucune
