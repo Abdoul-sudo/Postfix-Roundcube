@@ -285,10 +285,10 @@ __MYSQL_MAILDIR_FIELD    CONCAT(SUBSTRING_INDEX(email,'@',-1),'/',SUBSTRING_INDE
 ## <a name="roundcube"> ROUNDCUBE</a>
 ---
 ## <a name="installR"> Installation de Roundcube</a>
-`cd`   
-`wget https://github.com/roundcube/roundcubemail/releases/download/1.4.11/roundcubemail-1.4.11-complete.tar.gz`   
-`tar -zxvf roundcubemail-1.4.11-complete.tar.gz`   
-`mv roundcubemail-1.4.11/ roundcube`(`mv roundcubemail-1.4.11/ www`)  
+* `cd`   
+* `wget https://github.com/roundcube/roundcubemail/releases/download/1.4.11/roundcubemail-1.4.11-complete.tar.gz`   
+* `tar -zxvf roundcubemail-1.4.11-complete.tar.gz`   
+* `mv roundcubemail-1.4.11/ roundcube` 
 
 ## <a name="configR"> Configuration de roundcube</a>
 * On ajoute un user roundcube   
@@ -352,13 +352,19 @@ On copie ceci dans le fichier vide:
   __http://abdoul.mg/roundcube/installer/__
   ![url_rInstaller](/assets/url_rInstaller.png)   
   * On appuie sur next, et ici on met les informations de la base de donnée roundcube:   
-  ![url_rInstaller2](/assets/url_rInstaller2.png)
-  * On arrive ici
-  ![url_rInstaller3](/assets/url_rInstaller3.png)
-  On copie les lignes de code, on va dans   
-  `cd /var/www/html/roundcube/config`   
-  `nano config.inc.php`   
-  Et on colle les colles dans le fichier vide
+  ![url_rInstaller2](/assets/url_rInstaller2.png)   
+  On doit également changer le port smtp en __25__ (au lieu de 587 qui est celui par défaut)   
+  ![url_rInstaller2_2](/assets/url_rInstaller2_2.png)   
+  * On continue, et on arrive ici   
+  ![url_rInstaller3](/assets/url_rInstaller3.png)   
+        
+    On copie les lignes de code, on va dans   
+    `cd /var/www/html/roundcube/config`   
+    `nano config.inc.php`   
+    Et on les colles dans le fichier vide,   
+    il faut aussi ajouter cette ligne à la fin du fichier:   
+    `$config['smtp_user'] = '';`
+
 
     On attribue le fichier à l'user roundcube    
     `chown roundcube:roundcube config.inc.php`   
@@ -389,3 +395,11 @@ On copie ceci dans le fichier vide:
 
 ## <a name="test"> TEST</a>
 ---
+* On va dans __http://abdoul.mg/roundcube/__   
+![test1](/assets/test1.png)      
+![test2](/assets/test2.png)   
+  > L'utilisateur kirito@abdoul.mg est un utilisateur que j'ai créé (de la meme manière que contact@abdoul.mg) [ajout à la bdd -> test sur telnet]
+
+* On vérifie si le mail est bien arrivé   
+![test3](/assets/test3.png)    
+![test4](/assets/test4.png)
